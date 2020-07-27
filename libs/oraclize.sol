@@ -64,12 +64,12 @@ contract usingOraclize {
             oraclizeAddr = OAR.getAddress();
         }
         oraclize = OraclizeI(oraclizeAddr);
-        _
+        _;
     }
     modifier coupon(string code){
         oraclize = OraclizeI(OAR.getAddress());
         oraclize.useCoupon(code);
-        _
+        _;
     }
 
     function oraclize_setNetwork(uint8 networkID) internal returns(bool){

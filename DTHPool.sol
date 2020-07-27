@@ -166,7 +166,7 @@ contract DTHPoolInterface {
 
 contract DTHPool is DTHPoolInterface, Token, usingOraclize {
 
-    modifier onlyDelegate() {if (msg.sender != delegate) throw; _}
+    modifier onlyDelegate() {if (msg.sender != delegate) throw; _;}
 
     // DTHPool(address _daoAddress, address _delegate, uint _maxTimeBlocked, string _delegateName, string _delegateUrl, string _tokenSymbol);
 
