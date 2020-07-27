@@ -158,7 +158,7 @@ contract DAOInterface {
         uint _amount,
         string _description,
         bytes _transactionData,
-        uint _debatingPeriod,
+        uint64 _debatingPeriod,
         bool _newCurator
     ) payable returns (uint _proposalID);
 
@@ -276,7 +276,8 @@ contract DAO is DAOInterface{
         uint _amount,
         string _description,
         bytes _transactionData,
-        uint64 _debatingPeriod
+        uint64 _debatingPeriod,
+        bool _newCurator
     ) onlyTokenholders payable returns (uint _proposalID) {
 
         if (!allowedRecipients[_recipient]
