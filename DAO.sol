@@ -575,4 +575,8 @@ this withdraw functions is flawed and needs to be replaced by an improved versio
     function unblockMe() returns (bool) {
         return getOrModifyBlocked(msg.sender);
     }
+
+    function totalSupply() constant returns (uint) {
+        return token.totalSupply();
+    }
 }

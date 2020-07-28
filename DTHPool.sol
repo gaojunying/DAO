@@ -15,7 +15,7 @@ You should have received a copy of the GNU lesser General Public License
 along with the DAO.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import "./libs/oraclize.sol";
+import "./libs/oraclize25.sol";
 import "./Token.sol";
 
 /////////////////////

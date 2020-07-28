@@ -14,7 +14,7 @@ contract USNRewardPayOut {
          if (msg.value < usnContract.getDeploymentReward())
              throw;
 
-         if (usnContract.getOriginalClient().DAOrewardAccount().call.value(msg.value)()) {
+         if (usnContract.getOriginalClient().curator().call.value(msg.value)()) {
              return true;
          } else {
              throw;
@@ -23,7 +23,7 @@ contract USNRewardPayOut {
 
      // pay reward
      function payReward() returns(bool) {
-         if (usnContract.getOriginalClient().DAOrewardAccount().call.value(msg.value)()) {
+         if (usnContract.getOriginalClient().curator().call.value(msg.value)()) {
              return true;
          } else {
              throw;

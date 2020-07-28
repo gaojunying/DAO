@@ -98,16 +98,16 @@ contract PFOffer {
     modifier onlyClient {
         if (msg.sender != address(client))
             throw;
-        _
+        _;
     }
     modifier onlyContractor {
         if (msg.sender != address(contractor))
             throw;
-        _
+        _;
     }
 
     // Prevents methods from perfoming any value transfer
-    modifier noEther() {if (msg.value > 0) throw; _}
+    modifier noEther() {if (msg.value > 0) throw; _;}
 
     function PFOffer(
         address _contractor,
@@ -209,7 +209,7 @@ contract PFOffer {
     // on an invalid (balance 0) Offer has no effect. The Contractor loses
     // right to any ether left in the Offer.
     function terminate() noEther onlyClient {
-        if (originalClient.DAOrewardAccount().call.value(this.balance)())
+        if (originalClient.curator().call.value(this.balance)())
             isContractValid = false;
     }
 
@@ -263,7 +263,7 @@ contract PFOffer {
     // The proposal will not accept the results of the vote if it wasn't able
     // to be sure that YEA was able to succeed 48 hours before the deadline
     function checkVoteStatus() noEther {
-        var (,,,votingDeadline,,,,,,yea,nay,) = client.proposals(proposalID);
+        var (recipient,amount,description,votingDeadline,,,,,,,yea,nay,,) = client.proposals(proposalID);
         uint quorum = yea * 100 / client.totalSupply();
 
         // Only execute until 48 hours before the deadline

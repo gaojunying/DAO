@@ -213,7 +213,7 @@ contract Offer {
     // on an invalid (balance 0) Offer has no effect. The Contractor loses
     // right to any ether left in the Offer.
     function terminate() noEther onlyClient {
-        if (originalClient.DAOrewardAccount().call.value(this.balance)())
+        if (originalClient.curator().call.value(this.balance)())
             isContractValid = false;
     }
 
